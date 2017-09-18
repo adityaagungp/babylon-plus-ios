@@ -1,0 +1,847 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		99D00F4A06C8D065AADD810D /* Pods_BabylonPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7611A5333A34B6629823F18E /* Pods_BabylonPost.framework */; };
+		D23BCC6B1F6E127100873673 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC6A1F6E127100873673 /* CoreDataStack.swift */; };
+		D23BCC6E1F6E131300873673 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC6C1F6E131300873673 /* APICaller.swift */; };
+		D23BCC6F1F6E131300873673 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC6D1F6E131300873673 /* APIConstant.swift */; };
+		D23BCC711F6E134100873673 /* CoreDataKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC701F6E134100873673 /* CoreDataKey.swift */; };
+		D23BCC731F6E1B3000873673 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC721F6E1B3000873673 /* CoreDataManager.swift */; };
+		D23BCC951F6F869100873673 /* CDAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC8F1F6F869100873673 /* CDAddress.swift */; };
+		D23BCC961F6F869100873673 /* CDComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC901F6F869100873673 /* CDComment.swift */; };
+		D23BCC971F6F869100873673 /* CDCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC911F6F869100873673 /* CDCompany.swift */; };
+		D23BCC981F6F869100873673 /* CDGeo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC921F6F869100873673 /* CDGeo.swift */; };
+		D23BCC991F6F869100873673 /* CDPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC931F6F869100873673 /* CDPost.swift */; };
+		D23BCC9A1F6F869100873673 /* CDUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC941F6F869100873673 /* CDUser.swift */; };
+		D23BCC9C1F6F8AB600873673 /* CoreDataPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC9B1F6F8AB600873673 /* CoreDataPost.swift */; };
+		D23BCC9E1F6F910C00873673 /* CoreDataComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC9D1F6F910C00873673 /* CoreDataComment.swift */; };
+		D23BCCA01F6FBAAE00873673 /* CoreDataUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC9F1F6FBAAE00873673 /* CoreDataUser.swift */; };
+		D23BCCA61F6FDB7B00873673 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCCA51F6FDB7B00873673 /* KeychainManager.swift */; };
+		D24C5A4A1F67B96900355416 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A481F67B96900355416 /* MainViewController.swift */; };
+		D24C5A4B1F67B96900355416 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24C5A491F67B96900355416 /* MainViewController.xib */; };
+		D24C5A4D1F67CF9F00355416 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A4C1F67CF9F00355416 /* Post.swift */; };
+		D24C5A4F1F67DBA000355416 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A4E1F67DBA000355416 /* User.swift */; };
+		D24C5A511F67DBCB00355416 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A501F67DBCB00355416 /* Address.swift */; };
+		D24C5A531F67DC0600355416 /* Geo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A521F67DC0600355416 /* Geo.swift */; };
+		D24C5A551F67DC4B00355416 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A541F67DC4B00355416 /* Company.swift */; };
+		D24C5A591F67E07E00355416 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A571F67E07E00355416 /* PostView.swift */; };
+		D24C5A5A1F67E07E00355416 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24C5A581F67E07E00355416 /* PostView.xib */; };
+		D24C5A5F1F68DE1B00355416 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A5E1F68DE1B00355416 /* PostsView.swift */; };
+		D24C5A651F68EF2C00355416 /* PostsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A641F68EF2C00355416 /* PostsPresenter.swift */; };
+		D24C5A6A1F69125800355416 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A681F69125800355416 /* PostDetailViewController.swift */; };
+		D24C5A6B1F69125800355416 /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24C5A691F69125800355416 /* PostDetailViewController.xib */; };
+		D24C5A6E1F69228E00355416 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A6C1F69228E00355416 /* CommentView.swift */; };
+		D24C5A6F1F69228E00355416 /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24C5A6D1F69228E00355416 /* CommentView.xib */; };
+		D24C5A711F69246200355416 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A701F69246200355416 /* Comment.swift */; };
+		D24C5A731F6928B400355416 /* PostDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A721F6928B400355416 /* PostDetailPresenter.swift */; };
+		D24C5A751F6928E200355416 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C5A741F6928E200355416 /* PostDetailView.swift */; };
+		D2910EA01F679D8C0038FE4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2910E9F1F679D8C0038FE4D /* AppDelegate.swift */; };
+		D2910EA81F679D8C0038FE4D /* BabylonPost.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2910EA61F679D8C0038FE4D /* BabylonPost.xcdatamodeld */; };
+		D2910EAA1F679D8C0038FE4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2910EA91F679D8C0038FE4D /* Assets.xcassets */; };
+		D2910EAD1F679D8C0038FE4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2910EAB1F679D8C0038FE4D /* LaunchScreen.storyboard */; };
+		D2910EB81F679D8C0038FE4D /* BabylonPostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2910EB71F679D8C0038FE4D /* BabylonPostTests.swift */; };
+		D2910EC31F679D8C0038FE4D /* BabylonPostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2910EC21F679D8C0038FE4D /* BabylonPostUITests.swift */; };
+		D2910ED41F67AA120038FE4D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2910ED21F67AA120038FE4D /* LoginViewController.swift */; };
+		D2910ED51F67AA120038FE4D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2910ED31F67AA120038FE4D /* LoginViewController.xib */; };
+		D2FF1B841F6A2F6D00729D33 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FF1B821F6A2F6D00729D33 /* UserDetailViewController.swift */; };
+		D2FF1B851F6A2F6D00729D33 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2FF1B831F6A2F6D00729D33 /* UserDetailViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D2910EB41F679D8C0038FE4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2910E941F679D8C0038FE4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2910E9B1F679D8C0038FE4D;
+			remoteInfo = BabylonPost;
+		};
+		D2910EBF1F679D8C0038FE4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2910E941F679D8C0038FE4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2910E9B1F679D8C0038FE4D;
+			remoteInfo = BabylonPost;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B627AD5C0DF6BE305EB1E65 /* Pods_BabylonPostUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabylonPostUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47A08AECE786BEEA3D1EBC80 /* Pods-BabylonPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabylonPost.release.xcconfig"; path = "Pods/Target Support Files/Pods-BabylonPost/Pods-BabylonPost.release.xcconfig"; sourceTree = "<group>"; };
+		558A1DF33DAD74240C173421 /* Pods_BabylonPostTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabylonPostTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7611A5333A34B6629823F18E /* Pods_BabylonPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabylonPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5830C0E8A5F24FD9E86D378 /* Pods-BabylonPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabylonPost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabylonPost/Pods-BabylonPost.debug.xcconfig"; sourceTree = "<group>"; };
+		D23BCC6A1F6E127100873673 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = DataManager/CoreData/CoreDataStack.swift; sourceTree = "<group>"; };
+		D23BCC6C1F6E131300873673 /* APICaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APICaller.swift; path = DataManager/API/APICaller.swift; sourceTree = "<group>"; };
+		D23BCC6D1F6E131300873673 /* APIConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIConstant.swift; path = DataManager/API/APIConstant.swift; sourceTree = "<group>"; };
+		D23BCC701F6E134100873673 /* CoreDataKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataKey.swift; path = DataManager/CoreData/CoreDataKey.swift; sourceTree = "<group>"; };
+		D23BCC721F6E1B3000873673 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = DataManager/CoreData/CoreDataManager.swift; sourceTree = "<group>"; };
+		D23BCC8F1F6F869100873673 /* CDAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDAddress.swift; path = DataManager/CoreData/Model/CDAddress.swift; sourceTree = "<group>"; };
+		D23BCC901F6F869100873673 /* CDComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDComment.swift; path = DataManager/CoreData/Model/CDComment.swift; sourceTree = "<group>"; };
+		D23BCC911F6F869100873673 /* CDCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDCompany.swift; path = DataManager/CoreData/Model/CDCompany.swift; sourceTree = "<group>"; };
+		D23BCC921F6F869100873673 /* CDGeo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDGeo.swift; path = DataManager/CoreData/Model/CDGeo.swift; sourceTree = "<group>"; };
+		D23BCC931F6F869100873673 /* CDPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDPost.swift; path = DataManager/CoreData/Model/CDPost.swift; sourceTree = "<group>"; };
+		D23BCC941F6F869100873673 /* CDUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDUser.swift; path = DataManager/CoreData/Model/CDUser.swift; sourceTree = "<group>"; };
+		D23BCC9B1F6F8AB600873673 /* CoreDataPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataPost.swift; path = DataManager/CoreData/CoreDataPost.swift; sourceTree = "<group>"; };
+		D23BCC9D1F6F910C00873673 /* CoreDataComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataComment.swift; path = DataManager/CoreData/CoreDataComment.swift; sourceTree = "<group>"; };
+		D23BCC9F1F6FBAAE00873673 /* CoreDataUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataUser.swift; path = DataManager/CoreData/CoreDataUser.swift; sourceTree = "<group>"; };
+		D23BCCA51F6FDB7B00873673 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainManager.swift; path = DataManager/KeychainManager.swift; sourceTree = "<group>"; };
+		D24C5A481F67B96900355416 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
+		D24C5A491F67B96900355416 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = ViewControllers/MainViewController.xib; sourceTree = "<group>"; };
+		D24C5A4C1F67CF9F00355416 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Models/Post.swift; sourceTree = "<group>"; };
+		D24C5A4E1F67DBA000355416 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		D24C5A501F67DBCB00355416 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Address.swift; path = Models/Address.swift; sourceTree = "<group>"; };
+		D24C5A521F67DC0600355416 /* Geo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geo.swift; path = Models/Geo.swift; sourceTree = "<group>"; };
+		D24C5A541F67DC4B00355416 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Company.swift; path = Models/Company.swift; sourceTree = "<group>"; };
+		D24C5A571F67E07E00355416 /* PostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostView.swift; path = CustomViews/PostView.swift; sourceTree = "<group>"; };
+		D24C5A581F67E07E00355416 /* PostView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostView.xib; path = CustomViews/PostView.xib; sourceTree = "<group>"; };
+		D24C5A5E1F68DE1B00355416 /* PostsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsView.swift; path = Views/PostsView.swift; sourceTree = "<group>"; };
+		D24C5A641F68EF2C00355416 /* PostsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsPresenter.swift; path = Presenters/PostsPresenter.swift; sourceTree = "<group>"; };
+		D24C5A681F69125800355416 /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostDetailViewController.swift; path = ViewControllers/PostDetailViewController.swift; sourceTree = "<group>"; };
+		D24C5A691F69125800355416 /* PostDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostDetailViewController.xib; path = ViewControllers/PostDetailViewController.xib; sourceTree = "<group>"; };
+		D24C5A6C1F69228E00355416 /* CommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentView.swift; path = CustomViews/CommentView.swift; sourceTree = "<group>"; };
+		D24C5A6D1F69228E00355416 /* CommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentView.xib; path = CustomViews/CommentView.xib; sourceTree = "<group>"; };
+		D24C5A701F69246200355416 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = Models/Comment.swift; sourceTree = "<group>"; };
+		D24C5A721F6928B400355416 /* PostDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostDetailPresenter.swift; path = Presenters/PostDetailPresenter.swift; sourceTree = "<group>"; };
+		D24C5A741F6928E200355416 /* PostDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostDetailView.swift; path = Views/PostDetailView.swift; sourceTree = "<group>"; };
+		D2910E9C1F679D8C0038FE4D /* BabylonPost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabylonPost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2910E9F1F679D8C0038FE4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D2910EA71F679D8C0038FE4D /* BabylonPost.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BabylonPost.xcdatamodel; sourceTree = "<group>"; };
+		D2910EA91F679D8C0038FE4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D2910EAC1F679D8C0038FE4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D2910EAE1F679D8C0038FE4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2910EB31F679D8C0038FE4D /* BabylonPostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabylonPostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2910EB71F679D8C0038FE4D /* BabylonPostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabylonPostTests.swift; sourceTree = "<group>"; };
+		D2910EB91F679D8C0038FE4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2910EBE1F679D8C0038FE4D /* BabylonPostUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabylonPostUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2910EC21F679D8C0038FE4D /* BabylonPostUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabylonPostUITests.swift; sourceTree = "<group>"; };
+		D2910EC41F679D8C0038FE4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2910ED21F67AA120038FE4D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
+		D2910ED31F67AA120038FE4D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ViewControllers/LoginViewController.xib; sourceTree = "<group>"; };
+		D2FF1B821F6A2F6D00729D33 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailViewController.swift; path = ViewControllers/UserDetailViewController.swift; sourceTree = "<group>"; };
+		D2FF1B831F6A2F6D00729D33 /* UserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserDetailViewController.xib; path = ViewControllers/UserDetailViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2910E991F679D8C0038FE4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99D00F4A06C8D065AADD810D /* Pods_BabylonPost.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2910EB01F679D8C0038FE4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2910EBB1F679D8C0038FE4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1924A543CD2D3861ABA62D54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5830C0E8A5F24FD9E86D378 /* Pods-BabylonPost.debug.xcconfig */,
+				47A08AECE786BEEA3D1EBC80 /* Pods-BabylonPost.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BB5E3B9C01AF1A899C95E680 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7611A5333A34B6629823F18E /* Pods_BabylonPost.framework */,
+				558A1DF33DAD74240C173421 /* Pods_BabylonPostTests.framework */,
+				3B627AD5C0DF6BE305EB1E65 /* Pods_BabylonPostUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D23BCC681F6E11F100873673 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D23BCC6C1F6E131300873673 /* APICaller.swift */,
+				D23BCC6D1F6E131300873673 /* APIConstant.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		D23BCC691F6E11F900873673 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D23BCC8C1F6F852600873673 /* Model */,
+				D23BCC6A1F6E127100873673 /* CoreDataStack.swift */,
+				D23BCC701F6E134100873673 /* CoreDataKey.swift */,
+				D23BCC721F6E1B3000873673 /* CoreDataManager.swift */,
+				D23BCC9B1F6F8AB600873673 /* CoreDataPost.swift */,
+				D23BCC9D1F6F910C00873673 /* CoreDataComment.swift */,
+				D23BCC9F1F6FBAAE00873673 /* CoreDataUser.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		D23BCC8C1F6F852600873673 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D23BCC931F6F869100873673 /* CDPost.swift */,
+				D23BCC901F6F869100873673 /* CDComment.swift */,
+				D23BCC941F6F869100873673 /* CDUser.swift */,
+				D23BCC8F1F6F869100873673 /* CDAddress.swift */,
+				D23BCC921F6F869100873673 /* CDGeo.swift */,
+				D23BCC911F6F869100873673 /* CDCompany.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D24C5A561F67E03F00355416 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				D24C5A571F67E07E00355416 /* PostView.swift */,
+				D24C5A581F67E07E00355416 /* PostView.xib */,
+				D24C5A6C1F69228E00355416 /* CommentView.swift */,
+				D24C5A6D1F69228E00355416 /* CommentView.xib */,
+			);
+			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		D24C5A5C1F68DDDF00355416 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				D24C5A641F68EF2C00355416 /* PostsPresenter.swift */,
+				D24C5A721F6928B400355416 /* PostDetailPresenter.swift */,
+			);
+			name = Presenters;
+			sourceTree = "<group>";
+		};
+		D24C5A5D1F68DDEC00355416 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D24C5A5E1F68DE1B00355416 /* PostsView.swift */,
+				D24C5A741F6928E200355416 /* PostDetailView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D24C5A611F68EB7A00355416 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D23BCC681F6E11F100873673 /* API */,
+				D23BCC691F6E11F900873673 /* CoreData */,
+				D23BCCA51F6FDB7B00873673 /* KeychainManager.swift */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
+		D2910E931F679D8C0038FE4D = {
+			isa = PBXGroup;
+			children = (
+				D2910E9E1F679D8C0038FE4D /* BabylonPost */,
+				D2910EB61F679D8C0038FE4D /* BabylonPostTests */,
+				D2910EC11F679D8C0038FE4D /* BabylonPostUITests */,
+				D2910E9D1F679D8C0038FE4D /* Products */,
+				1924A543CD2D3861ABA62D54 /* Pods */,
+				BB5E3B9C01AF1A899C95E680 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D2910E9D1F679D8C0038FE4D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2910E9C1F679D8C0038FE4D /* BabylonPost.app */,
+				D2910EB31F679D8C0038FE4D /* BabylonPostTests.xctest */,
+				D2910EBE1F679D8C0038FE4D /* BabylonPostUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2910E9E1F679D8C0038FE4D /* BabylonPost */ = {
+			isa = PBXGroup;
+			children = (
+				D2910EAE1F679D8C0038FE4D /* Info.plist */,
+				D2910E9F1F679D8C0038FE4D /* AppDelegate.swift */,
+				D2910EA91F679D8C0038FE4D /* Assets.xcassets */,
+				D2910EA61F679D8C0038FE4D /* BabylonPost.xcdatamodeld */,
+				D24C5A561F67E03F00355416 /* CustomViews */,
+				D24C5A611F68EB7A00355416 /* DataManager */,
+				D2910EAB1F679D8C0038FE4D /* LaunchScreen.storyboard */,
+				D2910ED11F67A9BA0038FE4D /* Models */,
+				D24C5A5C1F68DDDF00355416 /* Presenters */,
+				D2910ED01F67A9B00038FE4D /* ViewControllers */,
+				D24C5A5D1F68DDEC00355416 /* Views */,
+			);
+			path = BabylonPost;
+			sourceTree = "<group>";
+		};
+		D2910EB61F679D8C0038FE4D /* BabylonPostTests */ = {
+			isa = PBXGroup;
+			children = (
+				D2910EB71F679D8C0038FE4D /* BabylonPostTests.swift */,
+				D2910EB91F679D8C0038FE4D /* Info.plist */,
+			);
+			path = BabylonPostTests;
+			sourceTree = "<group>";
+		};
+		D2910EC11F679D8C0038FE4D /* BabylonPostUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D2910EC21F679D8C0038FE4D /* BabylonPostUITests.swift */,
+				D2910EC41F679D8C0038FE4D /* Info.plist */,
+			);
+			path = BabylonPostUITests;
+			sourceTree = "<group>";
+		};
+		D2910ED01F67A9B00038FE4D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D2910ED21F67AA120038FE4D /* LoginViewController.swift */,
+				D24C5A481F67B96900355416 /* MainViewController.swift */,
+				D24C5A681F69125800355416 /* PostDetailViewController.swift */,
+				D2FF1B821F6A2F6D00729D33 /* UserDetailViewController.swift */,
+				D2910ED31F67AA120038FE4D /* LoginViewController.xib */,
+				D24C5A491F67B96900355416 /* MainViewController.xib */,
+				D24C5A691F69125800355416 /* PostDetailViewController.xib */,
+				D2FF1B831F6A2F6D00729D33 /* UserDetailViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D2910ED11F67A9BA0038FE4D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D24C5A4C1F67CF9F00355416 /* Post.swift */,
+				D24C5A4E1F67DBA000355416 /* User.swift */,
+				D24C5A501F67DBCB00355416 /* Address.swift */,
+				D24C5A521F67DC0600355416 /* Geo.swift */,
+				D24C5A541F67DC4B00355416 /* Company.swift */,
+				D24C5A701F69246200355416 /* Comment.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D2910E9B1F679D8C0038FE4D /* BabylonPost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2910EC71F679D8C0038FE4D /* Build configuration list for PBXNativeTarget "BabylonPost" */;
+			buildPhases = (
+				4E334CEB91938E76D5B7FCBC /* [CP] Check Pods Manifest.lock */,
+				D2910E981F679D8C0038FE4D /* Sources */,
+				D2910E991F679D8C0038FE4D /* Frameworks */,
+				D2910E9A1F679D8C0038FE4D /* Resources */,
+				AA9FEFA80D9E2218EA6BA2A6 /* [CP] Embed Pods Frameworks */,
+				5FD8441DFA814864340EE29D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BabylonPost;
+			productName = BabylonPost;
+			productReference = D2910E9C1F679D8C0038FE4D /* BabylonPost.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D2910EB21F679D8C0038FE4D /* BabylonPostTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2910ECA1F679D8C0038FE4D /* Build configuration list for PBXNativeTarget "BabylonPostTests" */;
+			buildPhases = (
+				D2910EAF1F679D8C0038FE4D /* Sources */,
+				D2910EB01F679D8C0038FE4D /* Frameworks */,
+				D2910EB11F679D8C0038FE4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2910EB51F679D8C0038FE4D /* PBXTargetDependency */,
+			);
+			name = BabylonPostTests;
+			productName = BabylonPostTests;
+			productReference = D2910EB31F679D8C0038FE4D /* BabylonPostTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D2910EBD1F679D8C0038FE4D /* BabylonPostUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2910ECD1F679D8C0038FE4D /* Build configuration list for PBXNativeTarget "BabylonPostUITests" */;
+			buildPhases = (
+				D2910EBA1F679D8C0038FE4D /* Sources */,
+				D2910EBB1F679D8C0038FE4D /* Frameworks */,
+				D2910EBC1F679D8C0038FE4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2910EC01F679D8C0038FE4D /* PBXTargetDependency */,
+			);
+			name = BabylonPostUITests;
+			productName = BabylonPostUITests;
+			productReference = D2910EBE1F679D8C0038FE4D /* BabylonPostUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D2910E941F679D8C0038FE4D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Aditya Agung Putra";
+				TargetAttributes = {
+					D2910E9B1F679D8C0038FE4D = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					D2910EB21F679D8C0038FE4D = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D2910E9B1F679D8C0038FE4D;
+					};
+					D2910EBD1F679D8C0038FE4D = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D2910E9B1F679D8C0038FE4D;
+					};
+				};
+			};
+			buildConfigurationList = D2910E971F679D8C0038FE4D /* Build configuration list for PBXProject "BabylonPost" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D2910E931F679D8C0038FE4D;
+			productRefGroup = D2910E9D1F679D8C0038FE4D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2910E9B1F679D8C0038FE4D /* BabylonPost */,
+				D2910EB21F679D8C0038FE4D /* BabylonPostTests */,
+				D2910EBD1F679D8C0038FE4D /* BabylonPostUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D2910E9A1F679D8C0038FE4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2910ED51F67AA120038FE4D /* LoginViewController.xib in Resources */,
+				D24C5A6B1F69125800355416 /* PostDetailViewController.xib in Resources */,
+				D2910EAD1F679D8C0038FE4D /* LaunchScreen.storyboard in Resources */,
+				D24C5A6F1F69228E00355416 /* CommentView.xib in Resources */,
+				D24C5A5A1F67E07E00355416 /* PostView.xib in Resources */,
+				D24C5A4B1F67B96900355416 /* MainViewController.xib in Resources */,
+				D2FF1B851F6A2F6D00729D33 /* UserDetailViewController.xib in Resources */,
+				D2910EAA1F679D8C0038FE4D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2910EB11F679D8C0038FE4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2910EBC1F679D8C0038FE4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E334CEB91938E76D5B7FCBC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BabylonPost-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FD8441DFA814864340EE29D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BabylonPost/Pods-BabylonPost-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA9FEFA80D9E2218EA6BA2A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BabylonPost/Pods-BabylonPost-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BabylonPost/Pods-BabylonPost-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2910E981F679D8C0038FE4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D24C5A751F6928E200355416 /* PostDetailView.swift in Sources */,
+				D2910ED41F67AA120038FE4D /* LoginViewController.swift in Sources */,
+				D2910EA01F679D8C0038FE4D /* AppDelegate.swift in Sources */,
+				D24C5A551F67DC4B00355416 /* Company.swift in Sources */,
+				D23BCC961F6F869100873673 /* CDComment.swift in Sources */,
+				D24C5A4F1F67DBA000355416 /* User.swift in Sources */,
+				D23BCC9E1F6F910C00873673 /* CoreDataComment.swift in Sources */,
+				D2910EA81F679D8C0038FE4D /* BabylonPost.xcdatamodeld in Sources */,
+				D23BCC731F6E1B3000873673 /* CoreDataManager.swift in Sources */,
+				D23BCCA01F6FBAAE00873673 /* CoreDataUser.swift in Sources */,
+				D23BCC971F6F869100873673 /* CDCompany.swift in Sources */,
+				D23BCC9A1F6F869100873673 /* CDUser.swift in Sources */,
+				D23BCC6E1F6E131300873673 /* APICaller.swift in Sources */,
+				D23BCC6F1F6E131300873673 /* APIConstant.swift in Sources */,
+				D23BCC981F6F869100873673 /* CDGeo.swift in Sources */,
+				D23BCC951F6F869100873673 /* CDAddress.swift in Sources */,
+				D23BCC711F6E134100873673 /* CoreDataKey.swift in Sources */,
+				D23BCC9C1F6F8AB600873673 /* CoreDataPost.swift in Sources */,
+				D2FF1B841F6A2F6D00729D33 /* UserDetailViewController.swift in Sources */,
+				D24C5A711F69246200355416 /* Comment.swift in Sources */,
+				D24C5A651F68EF2C00355416 /* PostsPresenter.swift in Sources */,
+				D24C5A4A1F67B96900355416 /* MainViewController.swift in Sources */,
+				D23BCCA61F6FDB7B00873673 /* KeychainManager.swift in Sources */,
+				D23BCC991F6F869100873673 /* CDPost.swift in Sources */,
+				D24C5A6A1F69125800355416 /* PostDetailViewController.swift in Sources */,
+				D24C5A4D1F67CF9F00355416 /* Post.swift in Sources */,
+				D24C5A731F6928B400355416 /* PostDetailPresenter.swift in Sources */,
+				D24C5A6E1F69228E00355416 /* CommentView.swift in Sources */,
+				D23BCC6B1F6E127100873673 /* CoreDataStack.swift in Sources */,
+				D24C5A511F67DBCB00355416 /* Address.swift in Sources */,
+				D24C5A591F67E07E00355416 /* PostView.swift in Sources */,
+				D24C5A5F1F68DE1B00355416 /* PostsView.swift in Sources */,
+				D24C5A531F67DC0600355416 /* Geo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2910EAF1F679D8C0038FE4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2910EB81F679D8C0038FE4D /* BabylonPostTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2910EBA1F679D8C0038FE4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2910EC31F679D8C0038FE4D /* BabylonPostUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D2910EB51F679D8C0038FE4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2910E9B1F679D8C0038FE4D /* BabylonPost */;
+			targetProxy = D2910EB41F679D8C0038FE4D /* PBXContainerItemProxy */;
+		};
+		D2910EC01F679D8C0038FE4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2910E9B1F679D8C0038FE4D /* BabylonPost */;
+			targetProxy = D2910EBF1F679D8C0038FE4D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D2910EAB1F679D8C0038FE4D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2910EAC1F679D8C0038FE4D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D2910EC51F679D8C0038FE4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2910EC61F679D8C0038FE4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D2910EC81F679D8C0038FE4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5830C0E8A5F24FD9E86D378 /* Pods-BabylonPost.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BabylonPost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bukalapak.BabylonPost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D2910EC91F679D8C0038FE4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47A08AECE786BEEA3D1EBC80 /* Pods-BabylonPost.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BabylonPost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bukalapak.BabylonPost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		D2910ECB1F679D8C0038FE4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BabylonPostTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bukalapak.BabylonPostTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BabylonPost.app/BabylonPost";
+			};
+			name = Debug;
+		};
+		D2910ECC1F679D8C0038FE4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BabylonPostTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bukalapak.BabylonPostTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BabylonPost.app/BabylonPost";
+			};
+			name = Release;
+		};
+		D2910ECE1F679D8C0038FE4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = BabylonPostUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bukalapak.BabylonPostUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = BabylonPost;
+			};
+			name = Debug;
+		};
+		D2910ECF1F679D8C0038FE4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = BabylonPostUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bukalapak.BabylonPostUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = BabylonPost;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2910E971F679D8C0038FE4D /* Build configuration list for PBXProject "BabylonPost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2910EC51F679D8C0038FE4D /* Debug */,
+				D2910EC61F679D8C0038FE4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2910EC71F679D8C0038FE4D /* Build configuration list for PBXNativeTarget "BabylonPost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2910EC81F679D8C0038FE4D /* Debug */,
+				D2910EC91F679D8C0038FE4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2910ECA1F679D8C0038FE4D /* Build configuration list for PBXNativeTarget "BabylonPostTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2910ECB1F679D8C0038FE4D /* Debug */,
+				D2910ECC1F679D8C0038FE4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2910ECD1F679D8C0038FE4D /* Build configuration list for PBXNativeTarget "BabylonPostUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2910ECE1F679D8C0038FE4D /* Debug */,
+				D2910ECF1F679D8C0038FE4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D2910EA61F679D8C0038FE4D /* BabylonPost.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D2910EA71F679D8C0038FE4D /* BabylonPost.xcdatamodel */,
+			);
+			currentVersion = D2910EA71F679D8C0038FE4D /* BabylonPost.xcdatamodel */;
+			path = BabylonPost.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D2910E941F679D8C0038FE4D /* Project object */;
+}

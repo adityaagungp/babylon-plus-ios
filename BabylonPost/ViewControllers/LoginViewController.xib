@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A2323a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="BabylonPost" customModuleProvider="target">
+            <connections>
+                <outlet property="btnLogin" destination="ee6-qh-n6h" id="XN5-Vy-69I"/>
+                <outlet property="emailField" destination="vaE-oI-udm" id="etu-xq-73w"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vaE-oI-udm">
+                    <rect key="frame" x="20" y="80" width="335" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go"/>
+                    <connections>
+                        <action selector="onEmailEdited:" destination="-1" eventType="editingChanged" id="Nf6-Xm-m2R"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee6-qh-n6h">
+                    <rect key="frame" x="168" y="150" width="38" height="30"/>
+                    <state key="normal" title="Login"/>
+                    <connections>
+                        <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="dF0-og-5Ag"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="vaE-oI-udm" secondAttribute="trailing" constant="20" id="07Q-ad-7R2"/>
+                <constraint firstItem="ee6-qh-n6h" firstAttribute="top" secondItem="vaE-oI-udm" secondAttribute="bottom" constant="40" id="POP-Dd-P27"/>
+                <constraint firstItem="vaE-oI-udm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="SHP-RR-Wam"/>
+                <constraint firstItem="vaE-oI-udm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Uev-XP-JR3"/>
+                <constraint firstItem="ee6-qh-n6h" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aGA-CD-CaM"/>
+                <constraint firstItem="vaE-oI-udm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="sAY-gz-gYC"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
