@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
         }
         titleString += "Home"
         title = titleString
-        loadPosts()
+        postPresenter?.loadPosts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,15 +44,12 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func loadPosts() {
-        postPresenter?.loadPosts()
-    }
-    
     @objc private func logout(){
         KeychainManager.instance.deleteAllSavedData()
         CoreDataManager.instance.deleteAllPosts()
         CoreDataManager.instance.deleteAllComments()
         CoreDataManager.instance.deleteAllUsers()
+        URLCache.shared.removeAllCachedResponses()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.setRootViewController(LoginViewController())
     }

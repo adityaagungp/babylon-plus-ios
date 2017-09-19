@@ -26,10 +26,10 @@ class PostDetailPresenter {
                 let user = User.createFromJson(response.arrayValue[0])
                 self.saveUserLocally(user)
                 self.onSuccessFetchAuthor(user: user)
-            },
+        },
             onFailure: {(message: String) -> Void in
                 self.tryFetchLocalUser(userId)
-            })
+        })
     }
     
     func requestComment(postId: Int){
@@ -42,12 +42,12 @@ class PostDetailPresenter {
                 for obj in response.arrayValue {
                     comments.append(Comment.createFromJson(obj))
                 }
-                self.saveCommentsLocally(comments)
+                self.saveCommentsLocally(postId, comments)
                 self.onSuccessFetchComment(comments: comments)
-            },
+        },
             onFailure: {(message: String) -> Void in
                 self.tryFetchLocalComments(postId)
-            })
+        })
     }
     
     func onSuccessFetchAuthor(user: User){
@@ -67,7 +67,7 @@ class PostDetailPresenter {
     }
     
     private func saveUserLocally(_ user: User){
-        CoreDataManager.instance.insertUser(user)
+        CoreDataManager.instance.insertOrUpdateUser(user)
     }
     
     private func tryFetchLocalUser(_ id: Int){
@@ -75,7 +75,8 @@ class PostDetailPresenter {
         view.setAuthor(user: user)
     }
     
-    private func saveCommentsLocally(_ comments: [Comment]){
+    private func saveCommentsLocally(_ postId: Int, _ comments: [Comment]){
+        CoreDataManager.instance.deleteCommentsOfPost(postId: postId)
         CoreDataManager.instance.insertComments(comments)
     }
     

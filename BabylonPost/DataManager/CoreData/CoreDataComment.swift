@@ -115,7 +115,7 @@ extension CoreDataManager {
         CoreDataStack.instance.saveContext()
     }
     
-    func deleteCommentsOfPost(_ postId: Int){
+    func deleteCommentsOfPost(postId: Int){
         do {
             let context = CoreDataStack.context
             let request: NSFetchRequest<CDComment> = CDComment.fetchRequest()

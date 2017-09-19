@@ -101,10 +101,8 @@ extension CoreDataManager {
             let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
             request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
             let fetchResult = try context.fetch(request)
-            if fetchResult.count != 0 {
-                for result in fetchResult {
-                    context.delete(result)
-                }
+            for result in fetchResult {
+                context.delete(result)
             }
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
@@ -117,10 +115,8 @@ extension CoreDataManager {
             let context = CoreDataStack.context
             let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
             let fetchResult = try context.fetch(request)
-            if fetchResult.count != 0 {
-                for result in fetchResult {
-                    context.delete(result)
-                }
+            for result in fetchResult {
+                context.delete(result)
             }
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")

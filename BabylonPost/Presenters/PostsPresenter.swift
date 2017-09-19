@@ -28,11 +28,10 @@ class PostsPresenter {
                 }
                 self.savePostsLocally(postList)
                 self.onSuccessFetchPosts(posts: postList)
-            },
+        },
             onFailure: {(message: String) -> Void in
                 self.onTryGetLocalPosts(message)
         })
-
     }
     
     func onSuccessFetchPosts(posts: [Post]){
@@ -44,6 +43,7 @@ class PostsPresenter {
     }
     
     private func savePostsLocally(_ posts: [Post]){
+        CoreDataManager.instance.deleteAllPosts()
         CoreDataManager.instance.insertPosts(posts)
     }
     

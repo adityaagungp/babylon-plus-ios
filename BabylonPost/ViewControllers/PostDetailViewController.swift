@@ -54,7 +54,10 @@ class PostDetailViewController: UIViewController {
             presenter?.requestAuthor(userId: post.userId!)
             presenter?.requestComment(postId: post.id!)
         } else {
-            
+            let alert = UIAlertController(title: "Post not available", message: "Post doesn't exist or failed to load", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: {action in self.navigationController?.popViewController(animated: true)})
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
         }
     }
     

@@ -19,6 +19,23 @@ extension CoreDataManager {
         CoreDataStack.instance.saveContext()
     }
     
+    func insertOrUpdateUser(_ user: User){
+        let context = CoreDataStack.context
+        let request: NSFetchRequest<CDUser> = CDUser.fetchRequest()
+        request.predicate = NSPredicate(format: "id = %@", NSNumber(value: user.id!))
+        do {
+            let fetchResult = try context.fetch(request)
+            for result in fetchResult {
+                context.delete(result)
+            }
+            let userCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.User, into: CoreDataStack.context) as! CDUser
+            userCD.setUserValues(user)
+        } catch let error as NSError {
+            print("Error with request: \(error.localizedDescription)")
+        }
+        CoreDataStack.instance.saveContext()
+    }
+    
     //MARK: - Read
     
     func getUser(_ id: Int) -> User? {
@@ -45,7 +62,7 @@ extension CoreDataManager {
         request.predicate = NSPredicate(format: "id = %@", NSNumber(value: user.id!))
         do {
             let fetchResult = try CoreDataStack.context.fetch(request)
-            if (fetchResult.count > 0){
+            if fetchResult.count > 0 {
                 let result = fetchResult[0]
                 result.setUserValues(user)
             }
