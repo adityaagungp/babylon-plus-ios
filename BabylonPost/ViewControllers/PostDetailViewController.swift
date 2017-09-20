@@ -21,20 +21,14 @@ class PostDetailViewController: UIViewController {
     var author: User?
     var comments = [Comment]()
     
-    var presenter: PostDetailPresenter? {
-        didSet {
-            if let presenter = presenter {
-                presenter.view = self
-                presenter.apiCaller = APICaller()
-                presenter.cdManager = (UIApplication.shared.delegate as! AppDelegate).coreDataManager
-            }
-        }
-    }
+    var presenter: PostDetailPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        presenter = PostDetailPresenter(self, apiCaller: APICaller(), coreDataManager: (UIApplication.shared.delegate as! AppDelegate).coreDataManager)
+        
         title = "Post Details"
         commentTable.dataSource = self
         let commentNib = UINib(nibName: "CommentView", bundle: nil)

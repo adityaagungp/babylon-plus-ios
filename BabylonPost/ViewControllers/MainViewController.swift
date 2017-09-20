@@ -15,16 +15,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var postTable: UITableView!
     @IBOutlet var emptyView: UIView!
     
-    var presenter: PostsPresenter? {
-        didSet {
-            if let presenter = presenter {
-                presenter.view = self
-                presenter.apiCaller = APICaller()
-                presenter.cdManager = (UIApplication.shared.delegate as! AppDelegate).coreDataManager
-            }
-        }
-    }
-    
+    var presenter: PostsPresenter?
     var coreDataManager: CoreDataManager?
     var keychainManager: KeychainManager?
     
@@ -35,6 +26,8 @@ class MainViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logout))
+        
+        presenter = PostsPresenter(self, apiCaller: APICaller(), coreDataManager: coreDataManager!)
         
         postTable.dataSource = self
         postTable.delegate = self
@@ -89,7 +82,6 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let postDetailVC = PostDetailViewController()
         postDetailVC.post = posts[indexPath.row]
-        postDetailVC.presenter = PostDetailPresenter()
         self.navigationController?.pushViewController(postDetailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: false)
     }

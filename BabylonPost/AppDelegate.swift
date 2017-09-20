@@ -48,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setHomeAsRootViewController(){
         let mainVC = MainViewController()
-        mainVC.presenter = PostsPresenter()
         mainVC.keychainManager = keychainManager
         mainVC.coreDataManager = coreDataManager
         setRootViewController(UINavigationController(rootViewController: mainVC))

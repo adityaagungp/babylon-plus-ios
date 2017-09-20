@@ -11,14 +11,20 @@ import SwiftyJSON
 
 class PostDetailPresenter {
     
-    var view: PostDetailView?
-    var apiCaller: APICaller?
-    var cdManager: CoreDataManager?
+    let view: PostDetailView
+    let apiCaller: APICaller
+    let cdManager: CoreDataManager
+    
+    init(_ view: PostDetailView, apiCaller: APICaller, coreDataManager: CoreDataManager) {
+        self.view = view
+        self.apiCaller = apiCaller
+        self.cdManager = coreDataManager
+    }
     
     func requestAuthor(userId: Int){
         let url = APIConstant.baseUrl + APIConstant.Route.Users
         let parameter = ["id" : userId]
-        apiCaller?.getRequest(
+        apiCaller.getRequest(
             url, headers: nil, parameters: parameter,
             onSuccess: {(response: JSON) -> Void in
                 let user = User.createFromJson(response.arrayValue[0])
@@ -33,7 +39,7 @@ class PostDetailPresenter {
     func requestComment(postId: Int){
         let url = APIConstant.baseUrl +  APIConstant.Route.Comments
         let parameter = ["postId" : postId]
-        apiCaller?.getRequest(
+        apiCaller.getRequest(
             url, headers: nil, parameters: parameter,
             onSuccess: {(response: JSON) -> Void in
                 var comments = [Comment]()
@@ -49,39 +55,39 @@ class PostDetailPresenter {
     }
     
     func onSuccessFetchAuthor(user: User){
-        view?.setAuthor(user: user)
+        view.setAuthor(user: user)
     }
     
     func onFailFetchAuthor(){
-        view?.setAuthor(user: nil)
+        view.setAuthor(user: nil)
     }
     
     func onSuccessFetchComment(comments: [Comment]){
-        view?.setComments(comments: comments)
+        view.setComments(comments: comments)
     }
     
     func onFailFetchComment(){
-        view?.setNoComment()
+        view.setNoComment()
     }
     
     private func saveUserLocally(_ user: User){
-        cdManager?.insertOrUpdateUser(user)
+        cdManager.insertOrUpdateUser(user)
     }
     
     private func tryFetchLocalUser(_ id: Int){
-        let user = cdManager?.getUser(id)
-        view?.setAuthor(user: user)
+        let user = cdManager.getUser(id)
+        view.setAuthor(user: user)
     }
     
     private func saveCommentsLocally(_ postId: Int, _ comments: [Comment]){
-        cdManager?.deleteCommentsOfPost(postId: postId)
-        cdManager?.insertComments(comments)
+        cdManager.deleteCommentsOfPost(postId: postId)
+        cdManager.insertComments(comments)
     }
     
     private func tryFetchLocalComments(_ postId: Int){
-        let localComments = cdManager?.getComments(postId: postId)
-        if (localComments?.count)! > 0 {
-            onSuccessFetchComment(comments: localComments!)
+        let localComments = cdManager.getComments(postId: postId)
+        if localComments.count > 0 {
+            onSuccessFetchComment(comments: localComments)
         } else {
             onFailFetchComment()
         }
