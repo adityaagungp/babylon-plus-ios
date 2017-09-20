@@ -14,16 +14,15 @@ extension CoreDataManager {
     //MARK: - Create
     
     func insertComment(_ comment: Comment){
-        let commentCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.Comment, into: CoreDataStack.context) as! CDComment
+        let commentCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.Comment, into: context) as! CDComment
         commentCD.setCommentValues(comment)
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
     
     func insertComments(_ comments: [Comment]){
         for comment in comments {
             let request: NSFetchRequest<CDComment> = CDComment.fetchRequest()
             request.predicate = NSPredicate(format: "id = %@", NSNumber(value: comment.id!))
-            let context = CoreDataStack.context
             do {
                 let fetchResult = try context.fetch(request)
                 if fetchResult.count > 0 {
@@ -37,7 +36,7 @@ extension CoreDataManager {
                 print("Error with request: \(error.localizedDescription)")
             }
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
     
     //MARK: - Read
@@ -49,7 +48,6 @@ extension CoreDataManager {
         if let id = postId {
             request.predicate = NSPredicate(format: "postId = %@", NSNumber(value: id))
         }
-        let context = CoreDataStack.context
         var comments = [Comment]()
         do {
             let fetchResult = try context.fetch(request)
@@ -65,7 +63,6 @@ extension CoreDataManager {
     func getComments(_ id: Int) -> Comment? {
         let request: NSFetchRequest<CDComment> = CDComment.fetchRequest()
         request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
-        let context = CoreDataStack.context
         do {
             let fetchResult = try context.fetch(request)
             if fetchResult.count > 0 {
@@ -85,7 +82,7 @@ extension CoreDataManager {
         let request: NSFetchRequest<CDComment> = CDComment.fetchRequest()
         request.predicate = NSPredicate(format: "id = %@", NSNumber(value: comment.id!))
         do {
-            let fetchResult = try CoreDataStack.context.fetch(request)
+            let fetchResult = try context.fetch(request)
             if (fetchResult.count > 0){
                 let object = fetchResult[0]
                 object.setCommentValues(comment)
@@ -93,14 +90,13 @@ extension CoreDataManager {
         } catch let error as NSError {
             print("Error with request: \(error.localizedDescription)")
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
     
     //MARK: - Delete
     
     func deleteComment(_ id: Int){
         do {
-            let context = CoreDataStack.context
             let request: NSFetchRequest<CDComment> = CDComment.fetchRequest()
             request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
             let fetchResult = try context.fetch(request)
@@ -112,12 +108,11 @@ extension CoreDataManager {
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
     
     func deleteCommentsOfPost(postId: Int){
         do {
-            let context = CoreDataStack.context
             let request: NSFetchRequest<CDComment> = CDComment.fetchRequest()
             request.predicate = NSPredicate(format: "postId = %@", NSNumber(value: postId))
             let fetchResult = try context.fetch(request)
@@ -129,12 +124,11 @@ extension CoreDataManager {
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
     
     func deleteAllComments(){
         do {
-            let context = CoreDataStack.context
             let request: NSFetchRequest<CDComment> = CDComment.fetchRequest()
             let fetchResult = try context.fetch(request)
             if fetchResult.count != 0 {
@@ -145,6 +139,6 @@ extension CoreDataManager {
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
 }

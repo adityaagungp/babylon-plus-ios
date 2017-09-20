@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		99D00F4A06C8D065AADD810D /* Pods_BabylonPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7611A5333A34B6629823F18E /* Pods_BabylonPost.framework */; };
-		D23BCC6B1F6E127100873673 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC6A1F6E127100873673 /* CoreDataStack.swift */; };
+		D23BCC6B1F6E127100873673 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC6A1F6E127100873673 /* CoreDataManager.swift */; };
 		D23BCC6E1F6E131300873673 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC6C1F6E131300873673 /* APICaller.swift */; };
 		D23BCC6F1F6E131300873673 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC6D1F6E131300873673 /* APIConstant.swift */; };
 		D23BCC711F6E134100873673 /* CoreDataKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC701F6E134100873673 /* CoreDataKey.swift */; };
-		D23BCC731F6E1B3000873673 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC721F6E1B3000873673 /* CoreDataManager.swift */; };
 		D23BCC951F6F869100873673 /* CDAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC8F1F6F869100873673 /* CDAddress.swift */; };
 		D23BCC961F6F869100873673 /* CDComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC901F6F869100873673 /* CDComment.swift */; };
 		D23BCC971F6F869100873673 /* CDCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BCC911F6F869100873673 /* CDCompany.swift */; };
@@ -49,6 +48,7 @@
 		D2910EC31F679D8C0038FE4D /* BabylonPostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2910EC21F679D8C0038FE4D /* BabylonPostUITests.swift */; };
 		D2910ED41F67AA120038FE4D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2910ED21F67AA120038FE4D /* LoginViewController.swift */; };
 		D2910ED51F67AA120038FE4D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2910ED31F67AA120038FE4D /* LoginViewController.xib */; };
+		D2FCDD121F72487E0018B0ED /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FCDD111F72487E0018B0ED /* CoreDataStack.swift */; };
 		D2FF1B841F6A2F6D00729D33 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FF1B821F6A2F6D00729D33 /* UserDetailViewController.swift */; };
 		D2FF1B851F6A2F6D00729D33 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2FF1B831F6A2F6D00729D33 /* UserDetailViewController.xib */; };
 /* End PBXBuildFile section */
@@ -76,11 +76,10 @@
 		558A1DF33DAD74240C173421 /* Pods_BabylonPostTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabylonPostTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7611A5333A34B6629823F18E /* Pods_BabylonPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabylonPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5830C0E8A5F24FD9E86D378 /* Pods-BabylonPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabylonPost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabylonPost/Pods-BabylonPost.debug.xcconfig"; sourceTree = "<group>"; };
-		D23BCC6A1F6E127100873673 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = DataManager/CoreData/CoreDataStack.swift; sourceTree = "<group>"; };
+		D23BCC6A1F6E127100873673 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = DataManager/CoreData/CoreDataManager.swift; sourceTree = "<group>"; };
 		D23BCC6C1F6E131300873673 /* APICaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APICaller.swift; path = DataManager/API/APICaller.swift; sourceTree = "<group>"; };
 		D23BCC6D1F6E131300873673 /* APIConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIConstant.swift; path = DataManager/API/APIConstant.swift; sourceTree = "<group>"; };
 		D23BCC701F6E134100873673 /* CoreDataKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataKey.swift; path = DataManager/CoreData/CoreDataKey.swift; sourceTree = "<group>"; };
-		D23BCC721F6E1B3000873673 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = DataManager/CoreData/CoreDataManager.swift; sourceTree = "<group>"; };
 		D23BCC8F1F6F869100873673 /* CDAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDAddress.swift; path = DataManager/CoreData/Model/CDAddress.swift; sourceTree = "<group>"; };
 		D23BCC901F6F869100873673 /* CDComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDComment.swift; path = DataManager/CoreData/Model/CDComment.swift; sourceTree = "<group>"; };
 		D23BCC911F6F869100873673 /* CDCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDCompany.swift; path = DataManager/CoreData/Model/CDCompany.swift; sourceTree = "<group>"; };
@@ -123,6 +122,7 @@
 		D2910EC41F679D8C0038FE4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2910ED21F67AA120038FE4D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		D2910ED31F67AA120038FE4D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ViewControllers/LoginViewController.xib; sourceTree = "<group>"; };
+		D2FCDD111F72487E0018B0ED /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = DataManager/CoreData/CoreDataStack.swift; sourceTree = "<group>"; };
 		D2FF1B821F6A2F6D00729D33 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailViewController.swift; path = ViewControllers/UserDetailViewController.swift; sourceTree = "<group>"; };
 		D2FF1B831F6A2F6D00729D33 /* UserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserDetailViewController.xib; path = ViewControllers/UserDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,12 +185,12 @@
 			isa = PBXGroup;
 			children = (
 				D23BCC8C1F6F852600873673 /* Model */,
-				D23BCC6A1F6E127100873673 /* CoreDataStack.swift */,
+				D23BCC6A1F6E127100873673 /* CoreDataManager.swift */,
 				D23BCC701F6E134100873673 /* CoreDataKey.swift */,
-				D23BCC721F6E1B3000873673 /* CoreDataManager.swift */,
 				D23BCC9B1F6F8AB600873673 /* CoreDataPost.swift */,
 				D23BCC9D1F6F910C00873673 /* CoreDataComment.swift */,
 				D23BCC9F1F6FBAAE00873673 /* CoreDataUser.swift */,
+				D2FCDD111F72487E0018B0ED /* CoreDataStack.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -541,9 +541,9 @@
 				D24C5A551F67DC4B00355416 /* Company.swift in Sources */,
 				D23BCC961F6F869100873673 /* CDComment.swift in Sources */,
 				D24C5A4F1F67DBA000355416 /* User.swift in Sources */,
+				D2FCDD121F72487E0018B0ED /* CoreDataStack.swift in Sources */,
 				D23BCC9E1F6F910C00873673 /* CoreDataComment.swift in Sources */,
 				D2910EA81F679D8C0038FE4D /* BabylonPost.xcdatamodeld in Sources */,
-				D23BCC731F6E1B3000873673 /* CoreDataManager.swift in Sources */,
 				D23BCCA01F6FBAAE00873673 /* CoreDataUser.swift in Sources */,
 				D23BCC971F6F869100873673 /* CDCompany.swift in Sources */,
 				D23BCC9A1F6F869100873673 /* CDUser.swift in Sources */,
@@ -563,7 +563,7 @@
 				D24C5A4D1F67CF9F00355416 /* Post.swift in Sources */,
 				D24C5A731F6928B400355416 /* PostDetailPresenter.swift in Sources */,
 				D24C5A6E1F69228E00355416 /* CommentView.swift in Sources */,
-				D23BCC6B1F6E127100873673 /* CoreDataStack.swift in Sources */,
+				D23BCC6B1F6E127100873673 /* CoreDataManager.swift in Sources */,
 				D24C5A511F67DBCB00355416 /* Address.swift in Sources */,
 				D24C5A591F67E07E00355416 /* PostView.swift in Sources */,
 				D24C5A5F1F68DE1B00355416 /* PostsView.swift in Sources */,

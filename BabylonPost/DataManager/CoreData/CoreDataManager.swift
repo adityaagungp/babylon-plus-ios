@@ -1,5 +1,5 @@
 //
-//  CoreDataManager.swift
+//  CoreDataStack.swift
 //  BabylonPost
 //
 //  Created by Aditya Agung Putra on 9/17/17.
@@ -7,8 +7,19 @@
 //
 
 import Foundation
+import CoreData
 
 class CoreDataManager {
     
-    static let instance = CoreDataManager()
+    var coreDataStack: CoreDataStack?
+    
+    var context: NSManagedObjectContext {
+        get {
+            return (coreDataStack?.persistentContainer.viewContext)!
+        }
+    }
+    
+    func saveContext(){
+        coreDataStack?.saveContext()
+    }
 }

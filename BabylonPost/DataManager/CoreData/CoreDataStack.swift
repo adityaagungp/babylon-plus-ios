@@ -2,7 +2,7 @@
 //  CoreDataStack.swift
 //  BabylonPost
 //
-//  Created by Aditya Agung Putra on 9/17/17.
+//  Created by Aditya Agung Putra on 9/20/17.
 //  Copyright © 2017 Aditya Agung Putra. All rights reserved.
 //
 
@@ -11,12 +11,9 @@ import CoreData
 
 class CoreDataStack {
     
-    static let instance = CoreDataStack()
-    static let context = instance.persistentContainer.viewContext
-    
     // MARK: - Core Data stack
     
-    lazy var persistentContainer: NSPersistentContainer = {
+    var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -34,7 +31,7 @@ class CoreDataStack {
     
     // MARK: - Core Data Saving support
     
-    func saveContext () {
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

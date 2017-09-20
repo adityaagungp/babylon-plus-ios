@@ -12,7 +12,6 @@ import KeychainSwift
 class KeychainManager {
     
     let keychain = KeychainSwift()
-    static let instance = KeychainManager()
     
     func setUsername(_ name: String){
         keychain.set(name, forKey: "Name")

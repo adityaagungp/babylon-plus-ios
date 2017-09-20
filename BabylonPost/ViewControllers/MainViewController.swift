@@ -15,7 +15,19 @@ class MainViewController: UIViewController {
     @IBOutlet weak var postTable: UITableView!
     @IBOutlet var emptyView: UIView!
     
-    private var postPresenter: PostsPresenter?
+    var presenter: PostsPresenter? {
+        didSet {
+            if let presenter = presenter {
+                presenter.view = self
+                presenter.apiCaller = APICaller()
+                presenter.cdManager = (UIApplication.shared.delegate as! AppDelegate).coreDataManager
+            }
+        }
+    }
+    
+    var coreDataManager: CoreDataManager?
+    var keychainManager: KeychainManager?
+    
     fileprivate var posts = [Post]()
     
     override func viewDidLoad() {
@@ -23,20 +35,20 @@ class MainViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logout))
-        postPresenter = PostsPresenter(self)
+        
         postTable.dataSource = self
         postTable.delegate = self
         let postNib = UINib(nibName: "PostView", bundle: nil)
         postTable.register(postNib, forCellReuseIdentifier: "PostView")
         postTable.estimatedRowHeight = 90.0
         
-        var titleString = KeychainManager.instance.getUsername() ?? ""
+        var titleString = keychainManager?.getUsername() ?? ""
         if !titleString.isEmpty {
             titleString += "'s "
         }
         titleString += "Home"
         title = titleString
-        postPresenter?.loadPosts()
+        presenter?.loadPosts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,13 +57,13 @@ class MainViewController: UIViewController {
     }
     
     @objc private func logout(){
-        KeychainManager.instance.deleteAllSavedData()
-        CoreDataManager.instance.deleteAllPosts()
-        CoreDataManager.instance.deleteAllComments()
-        CoreDataManager.instance.deleteAllUsers()
+        keychainManager?.deleteAllSavedData()
+        coreDataManager?.deleteAllPosts()
+        coreDataManager?.deleteAllComments()
+        coreDataManager?.deleteAllUsers()
         URLCache.shared.removeAllCachedResponses()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.setRootViewController(LoginViewController())
+        appDelegate.setLoginAsRootViewController()
     }
 }
 
@@ -77,6 +89,7 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let postDetailVC = PostDetailViewController()
         postDetailVC.post = posts[indexPath.row]
+        postDetailVC.presenter = PostDetailPresenter()
         self.navigationController?.pushViewController(postDetailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: false)
     }

@@ -22,14 +22,14 @@ public class CDAddress: NSManagedObject {
         return NSFetchRequest<CDAddress>(entityName: CoreDataKey.Entity.Address)
     }
     
-    func setAddressValues(_ address: Address?){
+    func setAddressValues(_ address: Address?, context: NSManagedObjectContext){
         if let address = address {
             setValue(address.city, forKey: CoreDataKey.Address.City)
             setValue(address.street, forKey: CoreDataKey.Address.Street)
             setValue(address.suite, forKey: CoreDataKey.Address.Suite)
             setValue(address.zipcode, forKey: CoreDataKey.Address.Zipcode)
             if let geo = address.geo {
-                let geoCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.Geo, into: CoreDataStack.context) as! CDGeo
+                let geoCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.Geo, into: context) as! CDGeo
                 geoCD.setGeoValues(geo)
                 setValue(geoCD, forKey: CoreDataKey.Address.Geo)
             }

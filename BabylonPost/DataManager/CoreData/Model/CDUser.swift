@@ -25,7 +25,7 @@ public class CDUser: NSManagedObject {
         return NSFetchRequest<CDUser>(entityName: CoreDataKey.Entity.User)
     }
     
-    func setUserValues(_ user: User){
+    func setUserValues(_ user: User, context: NSManagedObjectContext){
         setValue(user.id, forKey: CoreDataKey.User.Id)
         setValue(user.email, forKey: CoreDataKey.User.Email)
         setValue(user.name, forKey: CoreDataKey.User.Name)
@@ -33,12 +33,12 @@ public class CDUser: NSManagedObject {
         setValue(user.username, forKey: CoreDataKey.User.Username)
         setValue(user.website, forKey: CoreDataKey.User.Website)
         if let address = user.address {
-            let addressCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.Address, into: CoreDataStack.context) as! CDAddress
-            addressCD.setAddressValues(address)
+            let addressCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.Address, into: context) as! CDAddress
+            addressCD.setAddressValues(address, context: context)
             setValue(addressCD, forKey: CoreDataKey.User.Address)
         }
         if let company = user.company {
-            let companyCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.Company, into: CoreDataStack.context) as! CDCompany
+            let companyCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.Company, into: context) as! CDCompany
             companyCD.setCompanyValues(company)
             setValue(companyCD, forKey: CoreDataKey.User.Company)
         }

@@ -11,15 +11,13 @@ import SwiftyJSON
 
 class PostsPresenter {
     
-    var view: PostsView
-    
-    init(_ view: PostsView) {
-        self.view = view
-    }
+    var view: PostsView?
+    var apiCaller: APICaller?
+    var cdManager: CoreDataManager?
     
     func loadPosts() {
         let url = APIConstant.baseUrl + APIConstant.Route.Posts
-        APICaller.instance.getRequest(
+        apiCaller?.getRequest(
             url, headers: nil, parameters: [:],
             onSuccess: {(response: JSON) -> Void in
                 var postList = [Post]()
@@ -35,22 +33,22 @@ class PostsPresenter {
     }
     
     func onSuccessFetchPosts(posts: [Post]){
-        view.setPosts(posts: posts)
+        view?.setPosts(posts: posts)
     }
     
     func onFailFetchPosts(message: String){
-        view.showNoPost()
+        view?.showNoPost()
     }
     
     private func savePostsLocally(_ posts: [Post]){
-        CoreDataManager.instance.deleteAllPosts()
-        CoreDataManager.instance.insertPosts(posts)
+        cdManager?.deleteAllPosts()
+        cdManager?.insertPosts(posts)
     }
     
     private func onTryGetLocalPosts(_ message: String){
-        let localPosts = CoreDataManager.instance.getPosts()
-        if localPosts.count > 0 {
-            onSuccessFetchPosts(posts: localPosts)
+        let localPosts = cdManager?.getPosts()
+        if (localPosts?.count)! > 0 {
+            onSuccessFetchPosts(posts: localPosts!)
         } else {
             onFailFetchPosts(message: message)
         }

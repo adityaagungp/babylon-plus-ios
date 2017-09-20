@@ -12,8 +12,6 @@ import SwiftyJSON
 
 class APICaller {
     
-    static let instance = APICaller()
-    
     func getRequest(_ url: String,
                     headers: [String: String]?,
                     parameters: [String: Any],

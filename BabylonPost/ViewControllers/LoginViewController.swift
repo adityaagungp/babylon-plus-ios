@@ -13,6 +13,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     
+    var keychainManager: KeychainManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,10 +31,8 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func onLogin(_ sender: UIButton) {
-        KeychainManager.instance.setUsername(emailField.text!)
-        
-        let navigationVC = UINavigationController(rootViewController: MainViewController())
+        keychainManager?.setUsername(emailField.text!)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.setRootViewController(navigationVC)
+        appDelegate.setHomeAsRootViewController()
     }
 }

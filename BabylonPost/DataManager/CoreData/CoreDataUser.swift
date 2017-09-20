@@ -14,13 +14,12 @@ extension CoreDataManager {
     //MARK: - Create
     
     func insertUser(_ user: User){
-        let userCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.User, into: CoreDataStack.context) as! CDUser
-        userCD.setUserValues(user)
-        CoreDataStack.instance.saveContext()
+        let userCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.User, into: context) as! CDUser
+        userCD.setUserValues(user, context: context)
+        saveContext()
     }
     
     func insertOrUpdateUser(_ user: User){
-        let context = CoreDataStack.context
         let request: NSFetchRequest<CDUser> = CDUser.fetchRequest()
         request.predicate = NSPredicate(format: "id = %@", NSNumber(value: user.id!))
         do {
@@ -28,12 +27,12 @@ extension CoreDataManager {
             for result in fetchResult {
                 context.delete(result)
             }
-            let userCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.User, into: CoreDataStack.context) as! CDUser
-            userCD.setUserValues(user)
+            let userCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.User, into: context) as! CDUser
+            userCD.setUserValues(user, context: context)
         } catch let error as NSError {
             print("Error with request: \(error.localizedDescription)")
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
     
     //MARK: - Read
@@ -41,7 +40,6 @@ extension CoreDataManager {
     func getUser(_ id: Int) -> User? {
         let request: NSFetchRequest<CDUser> = CDUser.fetchRequest()
         request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
-        let context = CoreDataStack.context
         do {
             let fetchResult = try context.fetch(request)
             if fetchResult.count > 0 {
@@ -61,22 +59,21 @@ extension CoreDataManager {
         let request: NSFetchRequest<CDUser> = CDUser.fetchRequest()
         request.predicate = NSPredicate(format: "id = %@", NSNumber(value: user.id!))
         do {
-            let fetchResult = try CoreDataStack.context.fetch(request)
+            let fetchResult = try context.fetch(request)
             if fetchResult.count > 0 {
                 let result = fetchResult[0]
-                result.setUserValues(user)
+                result.setUserValues(user, context: context)
             }
         } catch let error as NSError {
             print("Error with request: \(error.localizedDescription)")
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
     
     //MARK: - Delete
     
     func deleteUser(_ id: Int){
         do {
-            let context = CoreDataStack.context
             let request: NSFetchRequest<CDUser> = CDUser.fetchRequest()
             request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
             let fetchResult = try context.fetch(request)
@@ -88,12 +85,11 @@ extension CoreDataManager {
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
     
     func deleteAllUsers(){
         do {
-            let context = CoreDataStack.context
             let userRequest: NSFetchRequest<CDUser> = CDUser.fetchRequest()
             let fetchResult = try context.fetch(userRequest)
             if fetchResult.count != 0 {
@@ -104,6 +100,6 @@ extension CoreDataManager {
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
 }

@@ -14,16 +14,15 @@ extension CoreDataManager {
     //MARK: - Create
     
     func insertPost(_ post: Post){
-        let postCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.Post, into: CoreDataStack.context) as! CDPost
+        let postCD = NSEntityDescription.insertNewObject(forEntityName: CoreDataKey.Entity.Post, into: context) as! CDPost
         postCD.setPostValues(post)
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
     
     func insertPosts(_ posts: [Post]){
         for post in posts {
             let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
             request.predicate = NSPredicate(format: "id = %@", NSNumber(value: post.id!))
-            let context = CoreDataStack.context
             do {
                 let fetchResult = try context.fetch(request)
                 if fetchResult.count > 0 {
@@ -37,7 +36,7 @@ extension CoreDataManager {
                 print("Error with request: \(error.localizedDescription)")
             }
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
     
     //MARK: - Read
@@ -46,7 +45,6 @@ extension CoreDataManager {
         let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: CoreDataKey.Post.Id, ascending: true)
         request.sortDescriptors = [sortDescriptor]
-        let context = CoreDataStack.context
         var posts = [Post]()
         do {
             let fetchResult = try context.fetch(request)
@@ -62,7 +60,6 @@ extension CoreDataManager {
     func getPost(_ id: Int) -> Post? {
         let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
         request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
-        let context = CoreDataStack.context
         do {
             let fetchResult = try context.fetch(request)
             if fetchResult.count > 0 {
@@ -82,7 +79,7 @@ extension CoreDataManager {
         let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
         request.predicate = NSPredicate(format: "id = %@", NSNumber(value: post.id!))
         do {
-            let fetchResult = try CoreDataStack.context.fetch(request)
+            let fetchResult = try context.fetch(request)
             if (fetchResult.count > 0){
                 let updatedPost = fetchResult[0]
                 updatedPost.setPostValues(post)
@@ -90,14 +87,13 @@ extension CoreDataManager {
         } catch let error as NSError {
             print("Error with request: \(error.localizedDescription)")
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
     
     //MARK: - Delete
     
     func deletePost(_ id: Int){
         do {
-            let context = CoreDataStack.context
             let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
             request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
             let fetchResult = try context.fetch(request)
@@ -107,12 +103,11 @@ extension CoreDataManager {
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
     
     func deleteAllPosts(){
         do {
-            let context = CoreDataStack.context
             let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
             let fetchResult = try context.fetch(request)
             for result in fetchResult {
@@ -121,6 +116,6 @@ extension CoreDataManager {
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
-        CoreDataStack.instance.saveContext()
+        saveContext()
     }
 }

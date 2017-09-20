@@ -20,7 +20,16 @@ class PostDetailViewController: UIViewController {
     var post: Post?
     var author: User?
     var comments = [Comment]()
-    var presenter: PostDetailPresenter?
+    
+    var presenter: PostDetailPresenter? {
+        didSet {
+            if let presenter = presenter {
+                presenter.view = self
+                presenter.apiCaller = APICaller()
+                presenter.cdManager = (UIApplication.shared.delegate as! AppDelegate).coreDataManager
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +37,6 @@ class PostDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         title = "Post Details"
         commentTable.dataSource = self
-        presenter = PostDetailPresenter(self)
         let commentNib = UINib(nibName: "CommentView", bundle: nil)
         commentTable.register(commentNib, forCellReuseIdentifier: "CommentView")
         commentTable.estimatedRowHeight = 90.0
