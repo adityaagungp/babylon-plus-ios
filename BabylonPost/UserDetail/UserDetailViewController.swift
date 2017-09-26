@@ -8,6 +8,13 @@
 
 import UIKit
 
+protocol UserDetailView {
+    
+    var presenter: UserPresenter? { get set }
+    
+    func showUserData(user: User?)
+}
+
 class UserDetailViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -15,21 +22,24 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var companyLabel: UILabel!
     
-    var user: User?
+    var presenter: UserPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        showUserData()
+        presenter?.showUser()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
+extension UserDetailViewController: UserDetailView {
     
-    private func showUserData(){
+    func showUserData(user: User?){
         if let user = user {
             title = user.name
             nameLabel.text = user.name

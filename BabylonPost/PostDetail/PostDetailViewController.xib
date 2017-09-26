@@ -39,17 +39,17 @@
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
         <view contentMode="scaleToFill" id="m5P-2X-kZu">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="359"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Anonymous" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SF-8A-5GV" customClass="TTTAttributedLabel">
-                    <rect key="frame" x="20" y="51" width="335" height="14.5"/>
+                    <rect key="frame" x="20" y="51" width="335" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.4106270378885189" green="0.7114030116580311" blue="0.39396198768729762" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkn-Vi-OMZ">
-                    <rect key="frame" x="20" y="85.5" width="335" height="17"/>
+                    <rect key="frame" x="20" y="86" width="335" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -73,7 +73,8 @@
                 <constraint firstItem="Zkn-Vi-OMZ" firstAttribute="top" secondItem="2SF-8A-5GV" secondAttribute="bottom" constant="20" id="rlR-HW-GeK"/>
                 <constraint firstItem="2SF-8A-5GV" firstAttribute="leading" secondItem="ld2-wi-AIG" secondAttribute="leading" id="zKj-H5-Gcw"/>
             </constraints>
-            <point key="canvasLocation" x="503.5" y="-80.5"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="503.5" y="-234.5"/>
         </view>
     </objects>
 </document>

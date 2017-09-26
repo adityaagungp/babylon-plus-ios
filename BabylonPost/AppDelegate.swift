@@ -41,15 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setLoginAsRootViewController(){
-        let loginVC = LoginViewController()
-        loginVC.keychainManager = keychainManager
+        let loginVC = LoginWireframe.createLoginModule(keychainManager: keychainManager)
         setRootViewController(loginVC)
     }
     
     func setHomeAsRootViewController(){
-        let mainVC = MainViewController()
-        mainVC.keychainManager = keychainManager
-        mainVC.coreDataManager = coreDataManager
+        let mainVC = HomeWireframe.createHomeModule(keychainManager: keychainManager, coreDataManager: coreDataManager)
         setRootViewController(UINavigationController(rootViewController: mainVC))
     }
 }

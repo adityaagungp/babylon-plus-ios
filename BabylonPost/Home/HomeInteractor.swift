@@ -1,24 +1,35 @@
 //
-//  PostsPresenter.swift
+//  HomeInteractor.swift
 //  BabylonPost
 //
-//  Created by Aditya Agung Putra on 9/13/17.
+//  Created by Aditya Agung Putra on 9/26/17.
 //  Copyright © 2017 Aditya Agung Putra. All rights reserved.
 //
 
 import Foundation
 import SwiftyJSON
 
-class PostsPresenter {
+protocol HomeInteractorProtocol {
     
-    let view: PostsView
+    var presenter: HomePresenter? { get set }
+    
+    func loadPosts()
+    func getActiveUser() -> String?
+    func clearActiveData()
+}
+
+class HomeInteractor: HomeInteractorProtocol {
+    
+    var presenter: HomePresenter?
+    
     let apiCaller: APICaller
     let cdManager: CoreDataManager
+    let keychainManager: KeychainManager
     
-    init(_ view: PostsView, apiCaller: APICaller, coreDataManager: CoreDataManager) {
-        self.view = view
+    init(apiCaller: APICaller, coreDataManager: CoreDataManager, keychainManager: KeychainManager) {
         self.apiCaller = apiCaller
         self.cdManager = coreDataManager
+        self.keychainManager = keychainManager
     }
     
     func loadPosts() {
@@ -31,19 +42,23 @@ class PostsPresenter {
                     postList.append(Post.setValueFromJson(obj))
                 }
                 self.savePostsLocally(postList)
-                self.onSuccessFetchPosts(posts: postList)
+                self.presenter?.onSuccessFetchPosts(posts: postList)
         },
             onFailure: {(message: String) -> Void in
                 self.onTryGetLocalPosts(message)
         })
     }
     
-    func onSuccessFetchPosts(posts: [Post]){
-        view.setPosts(posts: posts)
+    func getActiveUser() -> String? {
+        return keychainManager.getUsername()
     }
     
-    func onFailFetchPosts(message: String){
-        view.showNoPost()
+    func clearActiveData(){
+        keychainManager.deleteAllSavedData()
+        cdManager.deleteAllPosts()
+        cdManager.deleteAllComments()
+        cdManager.deleteAllUsers()
+        URLCache.shared.removeAllCachedResponses()
     }
     
     private func savePostsLocally(_ posts: [Post]){
@@ -54,9 +69,9 @@ class PostsPresenter {
     private func onTryGetLocalPosts(_ message: String){
         let localPosts = cdManager.getPosts()
         if localPosts.count > 0 {
-            onSuccessFetchPosts(posts: localPosts)
+            presenter?.onSuccessFetchPosts(posts: localPosts)
         } else {
-            onFailFetchPosts(message: message)
+            presenter?.onFailFetchPosts(message: message)
         }
     }
 }

@@ -5,7 +5,7 @@ Babylon Demo Project ++
 Basically this demo app is made based on the requirements from <a href= "https://github.com/Babylonpartners/iOS-Interview-Demo/blob/master/demo.md#1-the-babylon-demo-project">here</a>. This app is chosen as iOS learning media because for me it has minimum features to train a mobile app developer: layouting, item listing, connection to web API, and data persistence. The project has ++ on its title because it has additional features: simple login-logout mechanism and showing author details on different screen.
 
 ## Application Architecture
-This project use simple version of <a href="https://www.objc.io/issues/13-architecture/viper/">VIPER</a> architecture because the data retrieval either from the API or local DB is handled by the Presenter class instead of Interactor. The Routing component also doesn't be made in this project.
+This project is built following <a href="https://www.objc.io/issues/13-architecture/viper/">VIPER</a> architecture, popular Clean Architecture in iOS development.
 Local storage feature is implemented using Core Data framework because the stored data isn't kind of simple data and Core Data support Entity-Relationship modeling. Data for simple login-logout mechanism is stored using Keychain instead of UserDefaults. The storage alternative shows example for storing user data (such as email and credential on common apps) in more secure way.
 These libraries are used in this project:
 <ol>

@@ -1,22 +1,30 @@
 //
-//  PostDetailPresenter.swift
+//  PostDetailInteractor.swift
 //  BabylonPost
 //
-//  Created by Aditya Agung Putra on 9/13/17.
+//  Created by Aditya Agung Putra on 9/26/17.
 //  Copyright © 2017 Aditya Agung Putra. All rights reserved.
 //
 
 import Foundation
 import SwiftyJSON
 
-class PostDetailPresenter {
+protocol PostInteractor {
     
-    let view: PostDetailView
-    let apiCaller: APICaller
-    let cdManager: CoreDataManager
+    var presenter: PostPresenter? { get set }
     
-    init(_ view: PostDetailView, apiCaller: APICaller, coreDataManager: CoreDataManager) {
-        self.view = view
+    func requestAuthor(userId: Int)
+    func requestComment(postId: Int)
+}
+
+class PostDetailInteractor: PostInteractor {
+    
+    var presenter: PostPresenter?
+    
+    private let apiCaller: APICaller
+    private let cdManager: CoreDataManager
+    
+    init(apiCaller: APICaller, coreDataManager: CoreDataManager) {
         self.apiCaller = apiCaller
         self.cdManager = coreDataManager
     }
@@ -29,14 +37,14 @@ class PostDetailPresenter {
             onSuccess: {(response: JSON) -> Void in
                 let user = User.createFromJson(response.arrayValue[0])
                 self.saveUserLocally(user)
-                self.onSuccessFetchAuthor(user: user)
+                self.presenter?.onSuccessFetchAuthor(user: user)
         },
             onFailure: {(message: String) -> Void in
                 self.tryFetchLocalUser(userId)
         })
     }
     
-    func requestComment(postId: Int){
+    func requestComment(postId: Int) {
         let url = APIConstant.baseUrl +  APIConstant.Route.Comments
         let parameter = ["postId" : postId]
         apiCaller.getRequest(
@@ -47,27 +55,11 @@ class PostDetailPresenter {
                     comments.append(Comment.createFromJson(obj))
                 }
                 self.saveCommentsLocally(postId, comments)
-                self.onSuccessFetchComment(comments: comments)
+                self.presenter?.onSuccessFetchComment(comments: comments)
         },
             onFailure: {(message: String) -> Void in
                 self.tryFetchLocalComments(postId)
         })
-    }
-    
-    func onSuccessFetchAuthor(user: User){
-        view.setAuthor(user: user)
-    }
-    
-    func onFailFetchAuthor(){
-        view.setAuthor(user: nil)
-    }
-    
-    func onSuccessFetchComment(comments: [Comment]){
-        view.setComments(comments: comments)
-    }
-    
-    func onFailFetchComment(){
-        view.setNoComment()
     }
     
     private func saveUserLocally(_ user: User){
@@ -76,7 +68,11 @@ class PostDetailPresenter {
     
     private func tryFetchLocalUser(_ id: Int){
         let user = cdManager.getUser(id)
-        view.setAuthor(user: user)
+        if let user = user {
+            presenter?.onSuccessFetchAuthor(user: user)
+        } else {
+            presenter?.onFailFetchAuthor()
+        }
     }
     
     private func saveCommentsLocally(_ postId: Int, _ comments: [Comment]){
@@ -87,9 +83,9 @@ class PostDetailPresenter {
     private func tryFetchLocalComments(_ postId: Int){
         let localComments = cdManager.getComments(postId: postId)
         if localComments.count > 0 {
-            onSuccessFetchComment(comments: localComments)
+            presenter?.onSuccessFetchComment(comments: localComments)
         } else {
-            onFailFetchComment()
+            presenter?.onFailFetchComment()
         }
     }
 }

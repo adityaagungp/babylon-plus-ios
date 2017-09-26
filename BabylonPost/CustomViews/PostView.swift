@@ -18,7 +18,14 @@ class PostView: UITableViewCell {
             if let post = post {
                 lblTitle.text = post.title
                 lblTitle.sizeToFit()
+                setBackground()
             }
         }
+    }
+    
+    private func setBackground(){
+        let cellSelectedBg = UIView()
+        cellSelectedBg.backgroundColor = UIColor(rgb: 0xe0e0e0)
+        self.selectedBackgroundView = cellSelectedBg
     }
 }

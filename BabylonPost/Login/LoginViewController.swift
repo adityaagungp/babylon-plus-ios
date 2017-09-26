@@ -8,12 +8,19 @@
 
 import UIKit
 
+protocol LoginViewProtocol {
+    
+    var presenter: LoginPresenterProtocol? { get set }
+    
+    func onLoginError(message: String)
+}
+
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     
-    var keychainManager: KeychainManager?
+    var presenter: LoginPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +38,13 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func onLogin(_ sender: UIButton) {
-        keychainManager?.setUsername(emailField.text!)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.setHomeAsRootViewController()
+        presenter?.onLogin(username: emailField.text!)
+    }
+}
+
+extension LoginViewController: LoginViewProtocol {
+    
+    func onLoginError(message: String) {
+        print(message)
     }
 }
