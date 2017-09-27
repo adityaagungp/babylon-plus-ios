@@ -22,7 +22,7 @@ extension CoreDataManager {
     func insertComments(_ comments: [Comment]){
         for comment in comments {
             let request: NSFetchRequest<CDComment> = CDComment.fetchRequest()
-            request.predicate = NSPredicate(format: "id = %@", NSNumber(value: comment.id!))
+            request.predicate = predicateById(id: comment.id!)
             do {
                 let fetchResult = try context.fetch(request)
                 if fetchResult.count > 0 {
@@ -62,7 +62,7 @@ extension CoreDataManager {
     
     func getComments(_ id: Int) -> Comment? {
         let request: NSFetchRequest<CDComment> = CDComment.fetchRequest()
-        request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
+        request.predicate = predicateById(id: id)
         do {
             let fetchResult = try context.fetch(request)
             if fetchResult.count > 0 {
@@ -80,7 +80,7 @@ extension CoreDataManager {
     
     func updateComment(_ comment: Comment){
         let request: NSFetchRequest<CDComment> = CDComment.fetchRequest()
-        request.predicate = NSPredicate(format: "id = %@", NSNumber(value: comment.id!))
+        request.predicate = predicateById(id: comment.id!)
         do {
             let fetchResult = try context.fetch(request)
             if (fetchResult.count > 0){
@@ -98,7 +98,7 @@ extension CoreDataManager {
     func deleteComment(_ id: Int){
         do {
             let request: NSFetchRequest<CDComment> = CDComment.fetchRequest()
-            request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
+            request.predicate = predicateById(id: id)
             let fetchResult = try context.fetch(request)
             if fetchResult.count != 0 {
                 for result in fetchResult {

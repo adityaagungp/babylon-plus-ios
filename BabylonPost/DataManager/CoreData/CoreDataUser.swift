@@ -21,7 +21,7 @@ extension CoreDataManager {
     
     func insertOrUpdateUser(_ user: User){
         let request: NSFetchRequest<CDUser> = CDUser.fetchRequest()
-        request.predicate = NSPredicate(format: "id = %@", NSNumber(value: user.id!))
+        request.predicate = predicateById(id: user.id!)
         do {
             let fetchResult = try context.fetch(request)
             for result in fetchResult {
@@ -39,7 +39,7 @@ extension CoreDataManager {
     
     func getUser(_ id: Int) -> User? {
         let request: NSFetchRequest<CDUser> = CDUser.fetchRequest()
-        request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
+        request.predicate = predicateById(id: id)
         do {
             let fetchResult = try context.fetch(request)
             if fetchResult.count > 0 {
@@ -57,7 +57,7 @@ extension CoreDataManager {
     
     func updateUser(_ user: User){
         let request: NSFetchRequest<CDUser> = CDUser.fetchRequest()
-        request.predicate = NSPredicate(format: "id = %@", NSNumber(value: user.id!))
+        request.predicate = predicateById(id: user.id!)
         do {
             let fetchResult = try context.fetch(request)
             if fetchResult.count > 0 {
@@ -75,7 +75,7 @@ extension CoreDataManager {
     func deleteUser(_ id: Int){
         do {
             let request: NSFetchRequest<CDUser> = CDUser.fetchRequest()
-            request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
+            request.predicate = predicateById(id: id)
             let fetchResult = try context.fetch(request)
             if fetchResult.count != 0 {
                 for result in fetchResult {

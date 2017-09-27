@@ -14,6 +14,7 @@ protocol HomeInteractorProtocol {
     var presenter: HomePresenter? { get set }
     
     func loadPosts()
+    func searchPostsByQuery(query: String) -> [Post]
     func getActiveUser() -> String?
     func clearActiveData()
 }
@@ -47,6 +48,10 @@ class HomeInteractor: HomeInteractorProtocol {
             onFailure: {(message: String) -> Void in
                 self.onTryGetLocalPosts(message)
         })
+    }
+    
+    func searchPostsByQuery(query: String) -> [Post] {
+        return cdManager.getPostsByTerm(query)
     }
     
     func getActiveUser() -> String? {

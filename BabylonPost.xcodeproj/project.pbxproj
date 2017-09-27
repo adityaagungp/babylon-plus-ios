@@ -58,6 +58,7 @@
 		D2AF9B3E1F7A5DD4009ED124 /* PostsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF9B3D1F7A5DD4009ED124 /* PostsPresenter.swift */; };
 		D2AF9B401F7A60BA009ED124 /* UserDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF9B3F1F7A60BA009ED124 /* UserDetailWireframe.swift */; };
 		D2AF9B421F7A614B009ED124 /* UserDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF9B411F7A614B009ED124 /* UserDetailPresenter.swift */; };
+		D2E7B7071F7B890800301B77 /* String-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7B7061F7B890800301B77 /* String-Extension.swift */; };
 		D2FCDD121F72487E0018B0ED /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FCDD111F72487E0018B0ED /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		D2AF9B3D1F7A5DD4009ED124 /* PostsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsPresenter.swift; path = Home/PostsPresenter.swift; sourceTree = "<group>"; };
 		D2AF9B3F1F7A60BA009ED124 /* UserDetailWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailWireframe.swift; path = UserDetail/UserDetailWireframe.swift; sourceTree = "<group>"; };
 		D2AF9B411F7A614B009ED124 /* UserDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailPresenter.swift; path = UserDetail/UserDetailPresenter.swift; sourceTree = "<group>"; };
+		D2E7B7061F7B890800301B77 /* String-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String-Extension.swift"; path = "Extensions/String-Extension.swift"; sourceTree = "<group>"; };
 		D2FCDD111F72487E0018B0ED /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = DataManager/CoreData/CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -322,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				D2AF9B111F7A0917009ED124 /* UIColor-Extension.swift */,
+				D2E7B7061F7B890800301B77 /* String-Extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				D2AF9B371F7A51E5009ED124 /* PostDetailInteractor.swift in Sources */,
 				D2AF9B401F7A60BA009ED124 /* UserDetailWireframe.swift in Sources */,
 				D2AF9B281F7A4B8F009ED124 /* LoginViewController.swift in Sources */,
+				D2E7B7071F7B890800301B77 /* String-Extension.swift in Sources */,
 				D24C5A711F69246200355416 /* Comment.swift in Sources */,
 				D2AF9B3B1F7A5D9D009ED124 /* UserDetailViewController.swift in Sources */,
 				D2AF9B2C1F7A4BA2009ED124 /* MainViewController.swift in Sources */,

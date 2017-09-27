@@ -19,6 +19,7 @@ protocol HomePresenter {
     func loadPosts()
     func onSuccessFetchPosts(posts: [Post])
     func onFailFetchPosts(message: String)
+    func searchPost(query: String)
     func navigateToPost(post: Post)
     func onLogout()
 }
@@ -44,6 +45,11 @@ class PostsPresenter: HomePresenter {
     
     func onFailFetchPosts(message: String){
         view?.showNoPost()
+    }
+    
+    func searchPost(query: String) {
+        let posts = interactor?.searchPostsByQuery(query: query)
+        view?.setSearchResult(result: posts!)
     }
     
     func navigateToPost(post: Post) {

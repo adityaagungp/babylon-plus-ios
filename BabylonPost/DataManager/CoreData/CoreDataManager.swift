@@ -22,4 +22,8 @@ class CoreDataManager {
     func saveContext(){
         coreDataStack?.saveContext()
     }
+    
+    func predicateById(id: Int) -> NSPredicate {
+        return NSPredicate(format: "id = %@", NSNumber(value: id))
+    }
 }

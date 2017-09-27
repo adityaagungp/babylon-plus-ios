@@ -2,7 +2,13 @@
 Babylon Demo Project ++
 
 ## Project Description
-Basically this demo app is made based on the requirements from <a href= "https://github.com/Babylonpartners/iOS-Interview-Demo/blob/master/demo.md#1-the-babylon-demo-project">here</a>. This app is chosen as iOS learning media because for me it has minimum features to train a mobile app developer: layouting, item listing, connection to web API, and data persistence. The project has ++ on its title because it has additional features: simple login-logout mechanism and showing author details on different screen.
+Basically this demo app is made based on the requirements from <a href= "https://github.com/Babylonpartners/iOS-Interview-Demo/blob/master/demo.md#1-the-babylon-demo-project">here</a>. This app is chosen as iOS learning media because for me it has minimum features to train a mobile app developer: layouting, item listing, connection to web API, and data persistence. The project has ++ on its title because it has additional features:
+<ol>
+	<li>Simple login-logout mechanism</li>
+	<li>Search post functionality on local storage</li>
+	<li>Show author details on different screen</li>
+	<li>Show comments of the post instead of showing only its number</li>
+</ol>
 
 ## Application Architecture
 This project is built following <a href="https://www.objc.io/issues/13-architecture/viper/">VIPER</a> architecture, popular Clean Architecture in iOS development.

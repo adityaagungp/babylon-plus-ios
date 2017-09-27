@@ -22,7 +22,7 @@ extension CoreDataManager {
     func insertPosts(_ posts: [Post]){
         for post in posts {
             let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
-            request.predicate = NSPredicate(format: "id = %@", NSNumber(value: post.id!))
+            request.predicate = predicateById(id: post.id!)
             do {
                 let fetchResult = try context.fetch(request)
                 if fetchResult.count > 0 {
@@ -59,7 +59,7 @@ extension CoreDataManager {
     
     func getPost(_ id: Int) -> Post? {
         let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
-        request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
+        request.predicate = predicateById(id: id)
         do {
             let fetchResult = try context.fetch(request)
             if fetchResult.count > 0 {
@@ -73,11 +73,29 @@ extension CoreDataManager {
         }
     }
     
+    func getPostsByTerm(_ query: String) -> [Post] {
+        let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: CoreDataKey.Post.Id, ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        let sanitizedQuery = query.lowercased().sanitize()
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@ OR body CONTAINS[cd] %@", argumentArray: [sanitizedQuery, sanitizedQuery])
+        var posts = [Post]()
+        do {
+            let fetchResult = try context.fetch(request)
+            for result in fetchResult {
+                posts.append(result.postFromValues())
+            }
+        } catch {
+            print("Error with request: \(error.localizedDescription)")
+        }
+        return posts
+    }
+    
     //MARK: - Update
     
     func updatePost(_ post: Post){
         let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
-        request.predicate = NSPredicate(format: "id = %@", NSNumber(value: post.id!))
+        request.predicate = predicateById(id: post.id!)
         do {
             let fetchResult = try context.fetch(request)
             if (fetchResult.count > 0){
@@ -95,7 +113,7 @@ extension CoreDataManager {
     func deletePost(_ id: Int){
         do {
             let request: NSFetchRequest<CDPost> = CDPost.fetchRequest()
-            request.predicate = NSPredicate(format: "id = %@", NSNumber(value: id))
+            request.predicate = predicateById(id: id)
             let fetchResult = try context.fetch(request)
             for result in fetchResult {
                 context.delete(result)
