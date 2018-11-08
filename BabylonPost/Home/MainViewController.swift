@@ -28,8 +28,8 @@ class MainViewController: UIViewController {
     
     var presenter: HomePresenter?
     
-    fileprivate var posts = [Post]()
-    fileprivate var searchPost = [Post]()
+    fileprivate var posts: [Post] = []
+    fileprivate var searchPost: [Post] = []
     fileprivate var searchMode = false
     
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
         postTable.delegate = self
         let postNib = UINib(nibName: "PostView", bundle: nil)
         postTable.register(postNib, forCellReuseIdentifier: "PostView")
-        postTable.estimatedRowHeight = 90.0
+        postTable.rowHeight = 80
         searchBar.delegate = self
         
         presenter?.onSetHomeTitle()
@@ -67,13 +67,14 @@ class MainViewController: UIViewController {
         presenter?.onLogout()
     }
     
-    fileprivate func onQuitSearchMode(){
+    fileprivate func onQuitSearchMode() {
         searchMode = false
         searchPost.removeAll()
         postTable.reloadData()
+        postTable.tableFooterView = posts.count > 0 ? UIView() : emptyView
     }
     
-    fileprivate func onEnterSearchMode(){
+    fileprivate func onEnterSearchMode() {
         searchMode = true
         postTable.reloadData()
     }
@@ -133,19 +134,19 @@ extension MainViewController: HomeViewProtocol {
     
     func setPosts(posts: [Post]) {
         self.posts = posts
-        self.postTable.reloadData()
-        self.postTable.tableFooterView = UIView()
+        postTable.reloadData()
+        postTable.tableFooterView = posts.count > 0 ? UIView() : emptyView
     }
     
     func showNoPost() {
-        self.posts.removeAll()
-        self.postTable.tableFooterView = emptyView
-        self.postTable.reloadData()
+        posts.removeAll()
+        postTable.tableFooterView = emptyView
+        postTable.reloadData()
     }
     
     func setSearchResult(result: [Post]) {
-        self.searchPost = result
-        self.postTable.reloadData()
-        self.postTable.tableFooterView = result.count > 0 ? UIView() : emptyView
+        searchPost = result
+        postTable.reloadData()
+        postTable.tableFooterView = result.count > 0 ? UIView() : emptyView
     }
 }

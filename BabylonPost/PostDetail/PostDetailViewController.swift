@@ -29,7 +29,7 @@ class PostDetailViewController: UIViewController {
     @IBOutlet var postView: UIView!
     @IBOutlet weak var commentTable: UITableView!
     
-    var comments = [Comment]()
+    var comments: [Comment] = []
     
     var presenter: PostPresenter?
     
@@ -41,7 +41,8 @@ class PostDetailViewController: UIViewController {
         commentTable.dataSource = self
         let commentNib = UINib(nibName: "CommentView", bundle: nil)
         commentTable.register(commentNib, forCellReuseIdentifier: "CommentView")
-        commentTable.estimatedRowHeight = 90.0
+        commentTable.rowHeight = 100.0
+        //commentTable.estimatedRowHeight = 90.0
         authorLabel.enabledTextCheckingTypes = NSTextCheckingAllTypes
         authorLabel.delegate = self
         presenter?.loadPostData()

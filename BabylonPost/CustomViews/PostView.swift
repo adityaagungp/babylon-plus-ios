@@ -13,7 +13,7 @@ class PostView: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var separator: UIView!
     
-    var post: Post!{
+    var post: Post! {
         didSet {
             if let post = post {
                 lblTitle.text = post.title
@@ -23,7 +23,7 @@ class PostView: UITableViewCell {
         }
     }
     
-    private func setBackground(){
+    private func setBackground() {
         let cellSelectedBg = UIView()
         cellSelectedBg.backgroundColor = UIColor(rgb: 0xe0e0e0)
         self.selectedBackgroundView = cellSelectedBg

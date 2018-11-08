@@ -23,6 +23,7 @@ class HomeWireframe: HomeRouter {
         presenter.view = mainVC
         presenter.router = HomeWireframe()
         let interactor = HomeInteractor(apiCaller: APICaller(), coreDataManager: coreDataManager, keychainManager: keychainManager)
+        //let interactor = MockHomeInteractor()
         interactor.presenter = presenter
         presenter.interactor = interactor
         mainVC.presenter = presenter

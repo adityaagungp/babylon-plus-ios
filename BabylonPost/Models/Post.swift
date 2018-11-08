@@ -24,5 +24,14 @@ struct Post {
         post.body = json["body"].string
         return post
     }
+    
+    static func mockData() -> Post {
+        var post = Post()
+        post.id = 999
+        post.userId = 100
+        post.title = "Lorem Ipsum"
+        post.body = "Hello can you hear me?"
+        return post
+    }
 }
 

@@ -43,20 +43,20 @@ class PostDetailPresenter: PostPresenter {
         }
     }
     
-    func onSuccessFetchAuthor(user: User){
+    func onSuccessFetchAuthor(user: User) {
         author = user
         view?.setAuthor(user: user)
     }
     
-    func onFailFetchAuthor(){
+    func onFailFetchAuthor() {
         view?.onAuthorNotAvailable()
     }
     
-    func onSuccessFetchComment(comments: [Comment]){
+    func onSuccessFetchComment(comments: [Comment]) {
         view?.setComments(comments: comments)
     }
     
-    func onFailFetchComment(){
+    func onFailFetchComment() {
         view?.setNoComment()
     }
     

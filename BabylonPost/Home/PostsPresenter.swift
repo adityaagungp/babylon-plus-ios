@@ -39,17 +39,17 @@ class PostsPresenter: HomePresenter {
         interactor?.loadPosts()
     }
     
-    func onSuccessFetchPosts(posts: [Post]){
+    func onSuccessFetchPosts(posts: [Post]) {
         view?.setPosts(posts: posts)
     }
     
-    func onFailFetchPosts(message: String){
+    func onFailFetchPosts(message: String) {
         view?.showNoPost()
     }
     
     func searchPost(query: String) {
-        let posts = interactor?.searchPostsByQuery(query: query)
-        view?.setSearchResult(result: posts!)
+        guard let interactor = interactor else { return }
+        view?.setSearchResult(result: interactor.searchPostsByQuery(query: query))
     }
     
     func navigateToPost(post: Post) {

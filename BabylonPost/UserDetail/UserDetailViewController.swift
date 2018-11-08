@@ -39,7 +39,7 @@ class UserDetailViewController: UIViewController {
 
 extension UserDetailViewController: UserDetailView {
     
-    func showUserData(user: User?){
+    func showUserData(user: User?) {
         if let user = user {
             title = user.name
             nameLabel.text = user.name

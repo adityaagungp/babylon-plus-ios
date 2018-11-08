@@ -29,19 +29,22 @@ class PostDetailInteractor: PostInteractor {
         self.cdManager = coreDataManager
     }
     
-    func requestAuthor(userId: Int){
+    func requestAuthor(userId: Int) {
         let url = APIConstant.baseUrl + APIConstant.Route.Users
         let parameter = ["id" : userId]
         apiCaller.getRequest(
-            url, headers: nil, parameters: parameter,
-            onSuccess: {(response: JSON) -> Void in
-                let user = User.createFromJson(response.arrayValue[0])
+            url, headers: nil,
+            parameters: parameter,
+            onSuccess: { (response: JSON) -> Void in
+                guard let userResponse = response.arrayValue.first else { return }
+                let user = User.createFromJson(userResponse)
                 self.saveUserLocally(user)
                 self.presenter?.onSuccessFetchAuthor(user: user)
-        },
-            onFailure: {(message: String) -> Void in
+            },
+            onFailure: { (message: String) -> Void in
                 self.tryFetchLocalUser(userId)
-        })
+            }
+        )
     }
     
     func requestComment(postId: Int) {
@@ -49,24 +52,25 @@ class PostDetailInteractor: PostInteractor {
         let parameter = ["postId" : postId]
         apiCaller.getRequest(
             url, headers: nil, parameters: parameter,
-            onSuccess: {(response: JSON) -> Void in
-                var comments = [Comment]()
+            onSuccess: { response in
+                var comments: [Comment] = []
                 for obj in response.arrayValue {
                     comments.append(Comment.createFromJson(obj))
                 }
                 self.saveCommentsLocally(postId, comments)
                 self.presenter?.onSuccessFetchComment(comments: comments)
-        },
-            onFailure: {(message: String) -> Void in
+            },
+            onFailure: { message in
                 self.tryFetchLocalComments(postId)
-        })
+            }
+        )
     }
     
-    private func saveUserLocally(_ user: User){
+    private func saveUserLocally(_ user: User) {
         cdManager.insertOrUpdateUser(user)
     }
     
-    private func tryFetchLocalUser(_ id: Int){
+    private func tryFetchLocalUser(_ id: Int) {
         let user = cdManager.getUser(id)
         if let user = user {
             presenter?.onSuccessFetchAuthor(user: user)
@@ -75,12 +79,12 @@ class PostDetailInteractor: PostInteractor {
         }
     }
     
-    private func saveCommentsLocally(_ postId: Int, _ comments: [Comment]){
+    private func saveCommentsLocally(_ postId: Int, _ comments: [Comment]) {
         cdManager.deleteCommentsOfPost(postId: postId)
         cdManager.insertComments(comments)
     }
     
-    private func tryFetchLocalComments(_ postId: Int){
+    private func tryFetchLocalComments(_ postId: Int) {
         let localComments = cdManager.getComments(postId: postId)
         if localComments.count > 0 {
             presenter?.onSuccessFetchComment(comments: localComments)
